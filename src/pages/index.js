@@ -209,7 +209,7 @@ const IndexPage = ({ data }) => {
           <ScrollAnimation
             animateIn="slideInLeft"
             offset={
-              typeof window !== "undefined" ? window.innerHeight * 0.3 : 25
+              typeof window !== "undefined" ? window.innerHeight * 0.25 : 25
             }
             animateOnce={true}
           >
