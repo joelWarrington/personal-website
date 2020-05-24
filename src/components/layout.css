@@ -1,3 +1,6 @@
 html {
   width: 100vw;
 }
+.sidebar.menu a {
+  color: #000;
+}

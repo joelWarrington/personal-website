@@ -1,10 +1,3 @@
-/**
- * Layout component that queries for data
- * with Gatsby's useStaticQuery component
- *
- * See: https://www.gatsbyjs.org/docs/use-static-query/
- */
-
 import React, { useState } from "react"
 import PropTypes from "prop-types"
 import { useStaticQuery, graphql } from "gatsby"
@@ -16,8 +9,8 @@ import {
   Icon,
   Responsive,
 } from "semantic-ui-react"
-
-import Header from "./header"
+import smoothScroll from "./smoothScroll"
+import ScrollAnimation from "react-animate-on-scroll"
 import "./layout.css"
 
 const Layout = ({ children }) => {
@@ -54,16 +47,33 @@ const Layout = ({ children }) => {
               visible={sidebarOpen}
               width="thin"
             >
-              <Menu.Item link onClick={() => setSidebar(false)}>
+              <Menu.Item
+                onClick={() => {
+                  setSidebar(false)
+                  smoothScroll("about")
+                }}
+              >
                 About
               </Menu.Item>
-              <Menu.Item link onClick={() => setSidebar(false)}>
+              <Menu.Item
+                onClick={() => {
+                  setSidebar(false)
+                  smoothScroll("projects")
+                }}
+              >
                 Projects
               </Menu.Item>
-              <Menu.Item link onClick={() => setSidebar(false)}>
-                Blog
-              </Menu.Item>
-              <Menu.Item link onClick={() => setSidebar(false)}>
+              {/* <Menu.Item link onClick={() => setSidebar(false)}>
+                <AnchorLink href="#about" offset="25">
+                  Blog
+                </AnchorLink>
+              </Menu.Item> */}
+              <Menu.Item
+                onClick={() => {
+                  setSidebar(false)
+                  smoothScroll("connect")
+                }}
+              >
                 Connect
               </Menu.Item>
             </Sidebar>
@@ -77,13 +87,25 @@ const Layout = ({ children }) => {
           </>
         ) : (
           <Menu inverted secondary={true} size="large" borderless>
-            <Container>
-              <Menu.Item link position="right">
+            <Container text>
+              <Menu.Item
+                link
+                position="right"
+                onClick={() => smoothScroll("about")}
+              >
                 About
               </Menu.Item>
-              <Menu.Item link>Projects</Menu.Item>
-              <Menu.Item link>Blog</Menu.Item>
-              <Menu.Item link>Connect</Menu.Item>
+              <Menu.Item link onClick={() => smoothScroll("projects")}>
+                Projects
+              </Menu.Item>
+              {/* <Menu.Item link>
+                <AnchorLink href="#about" offset="25">
+                  Blog
+                </AnchorLink>
+              </Menu.Item> */}
+              <Menu.Item link onClick={() => smoothScroll("connect")}>
+                Connect
+              </Menu.Item>
             </Container>
           </Menu>
         )}

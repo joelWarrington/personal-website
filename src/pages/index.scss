@@ -1,0 +1,79 @@
+@import url("https://fonts.googleapis.com/css2?family=Archivo+Black&family=Roboto:ital,wght@0,900;1,400&display=swap");
+
+$breakpoints: (
+  "small": 767px,
+  "medium": 992px,
+  "large": 1200px,
+) !default;
+@mixin respond-to($breakpoint) {
+  // If the key exists in the map
+  @if map-has-key($breakpoints, $breakpoint) {
+    // Prints a media query based on the value
+    @media (min-width: map-get($breakpoints, $breakpoint)) {
+      @content;
+    }
+  }
+
+  // If the key doesn't exist in the map
+  @else {
+    @warn "Unfortunately, no value could be retrieved from `#{$breakpoint}`. "
+        + "Available breakpoints are: #{map-keys($breakpoints)}.";
+  }
+}
+html {
+  font-size: 14px;
+  @include respond-to("medium") {
+    font-size: 16px;
+  }
+}
+
+.section {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: "Archivo Black", sans-serif !important;
+  }
+  margin-top: 30vh;
+  &:first-of-type {
+    margin: 8rem 0;
+    p:first-of-type,
+    h1,
+    h2 {
+      margin: 0;
+    }
+    h1 {
+      color: #00b5ad;
+      font-size: 2.25rem;
+      @include respond-to("medium") {
+        font-size: 3rem;
+      }
+    }
+    h1 + h2 {
+      color: #d3d3d3;
+      font-size: 1.5rem;
+      @include respond-to("medium") {
+        font-size: 2rem;
+      }
+    }
+    p:last-of-type {
+      margin: 1.75rem 0;
+      font-size: 1.5rem;
+      width: 80%;
+    }
+  }
+  &.about .horizontal.label {
+    margin: 0 0.2rem;
+  }
+  &.connect .list > .item a {
+    &:hover {
+      animation: tada 1s;
+      -webkit-animation: tada 1s;
+    }
+  }
+  &:last-of-type {
+    margin-bottom: 4rem;
+  }
+}
