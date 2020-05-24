@@ -1,0 +1,23 @@
+@import url("https://fonts.googleapis.com/css2?family=Archivo+Black&family=Roboto:ital,wght@0,900;1,400&display=swap");
+
+.vert-center {
+  position: absolute;
+  top: 30%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Archivo Black", sans-serif !important;
+}
+h1 {
+  color: #00b5ad;
+  font-size: 15rem;
+}
+p {
+  font-size: 2rem;
+}
