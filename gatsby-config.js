@@ -5,6 +5,21 @@ module.exports = {
     author: `Joel Warrington <joelwarrington@gmail.com>`,
   },
   plugins: [
+    {
+      resolve: `gatsby-plugin-google-analytics`,
+      options: {
+        trackingId: "UA-167094886-1",
+        head: true,
+        anonymize: true,
+        respectDNT: true,
+        exclude: [],
+        pageTransitionDelay: 0,
+        variationId: "0",
+        defer: false,
+        sampleRate: 5,
+        siteSpeedSampleRate: 10,
+      },
+    },
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-sharp`,
     `gatsby-transformer-sharp`,
@@ -55,22 +70,7 @@ module.exports = {
         icon: `src/images/icon.png`, // This path is relative to the root of the site.
       },
     },
-    {
-      resolve: `gatsby-plugin-google-analytics`,
-      options: {
-        trackingId: "UA-167094886-1",
-        head: false,
-        anonymize: true,
-        respectDNT: true,
-        exclude: [],
-        pageTransitionDelay: 0,
-        variationId: "0",
-        defer: false,
-        sampleRate: 5,
-        siteSpeedSampleRate: 10,
-        cookieDomain: "joelwarrington.ca",
-      },
-    },
+
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
     // `gatsby-plugin-offline`,
