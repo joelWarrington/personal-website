@@ -19,6 +19,7 @@ import { trackCustomEvent } from "gatsby-plugin-google-analytics"
 import SEO from "../components/seo"
 import Layout from "../components/layout"
 import "./index.scss"
+import smoothScroll from "../components/smoothScroll"
 
 const IndexPage = ({ data }) => {
   return (
@@ -35,13 +36,22 @@ const IndexPage = ({ data }) => {
               problems.
             </p>
             <Button.Group>
-              <Button animated size="medium" color="teal">
+              <Button
+                animated
+                size="medium"
+                color="teal"
+                onClick={() => smoothScroll("projects")}
+              >
                 <Button.Content visible>See Projects</Button.Content>
                 <Button.Content hidden>
                   <Icon name="right arrow" />
                 </Button.Content>
               </Button>
-              <Button animated size="medium">
+              <Button
+                animated
+                size="medium"
+                onClick={() => smoothScroll("connect")}
+              >
                 <Button.Content visible>Get In Touch</Button.Content>
                 <Button.Content hidden>
                   <Icon name="handshake" />
@@ -54,7 +64,9 @@ const IndexPage = ({ data }) => {
           <a href="#about" id="about" />
           <ScrollAnimation
             animateIn="slideInLeft"
-            offset={window.innerHeight * 0.35}
+            offset={
+              typeof window !== "undefined" ? window.innerHeight * 0.35 : 50
+            }
             animateOnce={true}
           >
             <h2>About</h2>
@@ -110,7 +122,9 @@ const IndexPage = ({ data }) => {
           <a href="#projects" id="projects" />
           <ScrollAnimation
             animateIn="slideInRight"
-            offset={window.innerHeight * 0.4}
+            offset={
+              typeof window !== "undefined" ? window.innerHeight * 0.4 : 50
+            }
             animateOnce={true}
           >
             <h2>Projects</h2>
@@ -194,7 +208,9 @@ const IndexPage = ({ data }) => {
         <div className="connect section">
           <ScrollAnimation
             animateIn="slideInLeft"
-            offset={window.innerHeight * 0.3}
+            offset={
+              typeof window !== "undefined" ? window.innerHeight * 0.3 : 25
+            }
             animateOnce={true}
           >
             <a href="#connect" id="connect" />
