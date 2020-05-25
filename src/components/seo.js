@@ -21,7 +21,7 @@ function SEO({ description, lang, meta, title }) {
             author
           }
         }
-        metaImage: file(name: { eq: "icon" }) {
+        metaImage: file(name: { eq: "metaImage" }) {
           childImageSharp {
             original {
               src
