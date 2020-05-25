@@ -40,7 +40,14 @@ const IndexPage = ({ data }) => {
                 animated
                 size="medium"
                 color="teal"
-                onClick={() => smoothScroll("projects")}
+                onClick={() => {
+                  smoothScroll("projects")
+                  trackCustomEvent({
+                    category: "Intro Buttons",
+                    action: "Click",
+                    label: "See Projects",
+                  })
+                }}
               >
                 <Button.Content visible>See Projects</Button.Content>
                 <Button.Content hidden>
@@ -50,7 +57,14 @@ const IndexPage = ({ data }) => {
               <Button
                 animated
                 size="medium"
-                onClick={() => smoothScroll("connect")}
+                onClick={() => {
+                  smoothScroll("connect")
+                  trackCustomEvent({
+                    category: "Intro Buttons",
+                    action: "Click",
+                    label: "Get In Touch",
+                  })
+                }}
               >
                 <Button.Content visible>Get In Touch</Button.Content>
                 <Button.Content hidden>

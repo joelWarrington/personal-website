@@ -10,6 +10,7 @@ import {
   Responsive,
 } from "semantic-ui-react"
 import smoothScroll from "./smoothScroll"
+import { trackCustomEvent } from "gatsby-plugin-google-analytics"
 import ScrollAnimation from "react-animate-on-scroll"
 import "./layout.css"
 
@@ -51,6 +52,11 @@ const Layout = ({ children }) => {
                 onClick={() => {
                   setSidebar(false)
                   smoothScroll("about")
+                  trackCustomEvent({
+                    category: "Navigation",
+                    action: "Click",
+                    label: "About",
+                  })
                 }}
               >
                 About
@@ -59,6 +65,11 @@ const Layout = ({ children }) => {
                 onClick={() => {
                   setSidebar(false)
                   smoothScroll("projects")
+                  trackCustomEvent({
+                    category: "Navigation",
+                    action: "Click",
+                    label: "Projects",
+                  })
                 }}
               >
                 Projects
@@ -72,6 +83,11 @@ const Layout = ({ children }) => {
                 onClick={() => {
                   setSidebar(false)
                   smoothScroll("connect")
+                  trackCustomEvent({
+                    category: "Navigation",
+                    action: "Click",
+                    label: "Connect",
+                  })
                 }}
               >
                 Connect
@@ -91,11 +107,28 @@ const Layout = ({ children }) => {
               <Menu.Item
                 link
                 position="right"
-                onClick={() => smoothScroll("about")}
+                onClick={() => {
+                  smoothScroll("about")
+                  trackCustomEvent({
+                    category: "Navigation",
+                    action: "Click",
+                    label: "About",
+                  })
+                }}
               >
                 About
               </Menu.Item>
-              <Menu.Item link onClick={() => smoothScroll("projects")}>
+              <Menu.Item
+                link
+                onClick={() => {
+                  smoothScroll("projects")
+                  trackCustomEvent({
+                    category: "Navigation",
+                    action: "Click",
+                    label: "Projects",
+                  })
+                }}
+              >
                 Projects
               </Menu.Item>
               {/* <Menu.Item link>
@@ -103,7 +136,17 @@ const Layout = ({ children }) => {
                   Blog
                 </AnchorLink>
               </Menu.Item> */}
-              <Menu.Item link onClick={() => smoothScroll("connect")}>
+              <Menu.Item
+                link
+                onClick={() => {
+                  smoothScroll("connect")
+                  trackCustomEvent({
+                    category: "Navigation",
+                    action: "Click",
+                    label: "Connect",
+                  })
+                }}
+              >
                 Connect
               </Menu.Item>
             </Container>
