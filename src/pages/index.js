@@ -236,13 +236,31 @@ const IndexPage = ({ data }) => {
                   as="a"
                   size="large"
                   href="mailto:joelwarrington@gmail.com"
+                  onClick={() =>
+                    trackCustomEvent({
+                      category: "Connect Buttons",
+                      action: "Click",
+                      label: "Email",
+                    })
+                  }
                 >
                   <Icon name="mail" />
                   joelwarrington@gmail.com
                 </Label>
               </List.Item>
               <List.Item>
-                <Label size="large" as="a" href="tel:7802982037">
+                <Label
+                  size="large"
+                  as="a"
+                  href="tel:7802982037"
+                  onClick={() =>
+                    trackCustomEvent({
+                      category: "Connect Buttons",
+                      action: "Click",
+                      label: "Phone",
+                    })
+                  }
+                >
                   <Icon name="phone" />
                   780-298-2037
                 </Label>
@@ -254,6 +272,13 @@ const IndexPage = ({ data }) => {
                   href="https://www.linkedin.com/in/joelwarrington/"
                   target="_blank"
                   rel="noopener noreferrer"
+                  onClick={() =>
+                    trackCustomEvent({
+                      category: "Connect Buttons",
+                      action: "Click",
+                      label: "LinkedIn",
+                    })
+                  }
                 >
                   <Icon name="linkedin square" />
                   joelwarrington
@@ -266,6 +291,13 @@ const IndexPage = ({ data }) => {
                   href="https://github.com/joelwarrington/"
                   target="_blank"
                   rel="noopener noreferrer"
+                  onClick={() =>
+                    trackCustomEvent({
+                      category: "Connect Buttons",
+                      action: "Click",
+                      label: "GitHub",
+                    })
+                  }
                 >
                   <Icon name="github" />
                   joelwarrington

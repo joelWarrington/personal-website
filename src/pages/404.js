@@ -8,7 +8,12 @@ import Layout from "../components/layout"
 import SEO from "../components/seo"
 
 const NotFoundPage = () => (
-  <Segment style={{ height: "100vh" }} inverted vertical>
+  <Segment
+    style={{ height: "100vh" }}
+    inverted
+    vertical
+    className="not-found-page"
+  >
     <Container className="vert-center" inverted text textAlign="center">
       <SEO title="404: Not found" />
       <h1>404</h1>
