@@ -24,10 +24,22 @@ function SEO({ description, lang, meta, title }) {
       }
     `
   )
+  const { image } = useStaticQuery(graphql`
+    query {
+      image: file(name: { eq: "icon" }) {
+        childImageSharp {
+          original {
+            src
+            height
+            width
+          }
+        }
+      }
+    }
+  `)
 
-  const metaDescription = description || site.siteMetadata.description
-
-  return (
+  const metaDescription = site.siteMetadata.description
+  const image = site.return(
     <Helmet
       htmlAttributes={{
         lang,
@@ -52,10 +64,6 @@ function SEO({ description, lang, meta, title }) {
           content: `website`,
         },
         {
-          name: `twitter:card`,
-          content: `summary`,
-        },
-        {
           name: `twitter:creator`,
           content: site.siteMetadata.author,
         },
@@ -67,7 +75,35 @@ function SEO({ description, lang, meta, title }) {
           name: `twitter:description`,
           content: metaDescription,
         },
-      ].concat(meta)}
+      ]
+        .concat(
+          metaImage
+            ? [
+                {
+                  property: "og:image",
+                  content: image.original.src,
+                },
+                {
+                  property: "og:image:width",
+                  content: image.original.width,
+                },
+                {
+                  property: "og:image:height",
+                  content: image.original.height,
+                },
+                {
+                  name: "twitter:card",
+                  content: "summary_large_image",
+                },
+              ]
+            : [
+                {
+                  name: "twitter:card",
+                  content: "summary",
+                },
+              ]
+        )
+        .concat(meta)}
     />
   )
 }
