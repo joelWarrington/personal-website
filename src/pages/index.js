@@ -176,8 +176,7 @@ const IndexPage = ({ data }) => {
                             trackCustomEvent({
                               category: "Project Buttons",
                               action: "Click",
-                              label: item.project.metadata.title,
-                              value: 1,
+                              label: `Live Site: ${item.project.metadata.title}`,
                             })
                           }}
                         >
@@ -197,8 +196,7 @@ const IndexPage = ({ data }) => {
                             trackCustomEvent({
                               category: "Project Buttons",
                               action: "Click",
-                              label: item.project.metadata.title,
-                              value: 2,
+                              label: `Code Repo: ${item.project.metadata.title}`,
                             })
                           }}
                         >
