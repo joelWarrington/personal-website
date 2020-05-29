@@ -75,7 +75,6 @@ const IndexPage = ({ data }) => {
           </div>
         </div>
         <div className="about section">
-          <a href="#about" id="about" />
           <ScrollAnimation
             animateIn="slideInLeft"
             offset={
@@ -83,12 +82,15 @@ const IndexPage = ({ data }) => {
             }
             animateOnce={true}
           >
-            <h2>About</h2>
+            <a id="about" className="section-link">
+              <h2>About</h2>
+            </a>
             <p>
               I am a software developer based out of{" "}
               <Label
                 as="a"
                 href="https://www.google.com/maps/search/?api=1&query=Edmonton,%20Alberta"
+                rel="noopener noreferrer"
                 target="_blank"
                 horizontal
               >
@@ -133,7 +135,6 @@ const IndexPage = ({ data }) => {
           </ScrollAnimation>
         </div>
         <div className="project section">
-          <a href="#projects" id="projects" />
           <ScrollAnimation
             animateIn="slideInRight"
             offset={
@@ -141,7 +142,9 @@ const IndexPage = ({ data }) => {
             }
             animateOnce={true}
           >
-            <h2>Projects</h2>
+            <a id="projects" className="section-link">
+              <h2>Projects</h2>
+            </a>
             <Card.Group itemsPerRow={2} doubling>
               {map(data.allMarkdownRemark.projects, item => {
                 return (
@@ -225,8 +228,9 @@ const IndexPage = ({ data }) => {
             }
             animateOnce={true}
           >
-            <a href="#connect" id="connect" />
-            <h2>Connect</h2>
+            <a id="connect" className="section-link">
+              <h2>Connect</h2>
+            </a>
             <p>Want to get in touch with me or check out my stuff?</p>
             <List className="social">
               <List.Item>

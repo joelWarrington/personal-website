@@ -76,4 +76,15 @@ html {
   &:last-of-type {
     margin-bottom: 4rem;
   }
+  .section-link {
+    color: #fff;
+    pointer-events: none;
+    cursor: default;
+    h1,
+    h2,
+    h3,
+    h4 {
+      margin-bottom: 1rem;
+    }
+  }
 }
